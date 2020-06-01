@@ -15,6 +15,7 @@ var servers = {};
 
 botClient.on('ready',() =>{
     console.log('MISA bot is ready!' + " version " + version);
+
     const morning = new cron.CronJob('0 30 8 * * 1-5', () => {
         var morningMessage = botClient.channels.cache.find(channel => channel.id === '713088552518418432');
         const morningEmbed = new Discord.MessageEmbed()
@@ -38,7 +39,6 @@ botClient.on('ready',() =>{
       });
       
       job.start();
-    
 });
     botClient.on("guildMemberAdd", member => {
         member.send("Welcome to Ateneo MISA 20-21 discord server! Type in !help to any channel in the server to get started :)")
@@ -49,7 +49,7 @@ botClient.on('ready',() =>{
 
         let args = message.content.substring(prefix.length).split(" ");
         
-        if(message.channel.type === 'dm'){
+        if(message.channel.type == "dm"){
             return;
         }
         else{
