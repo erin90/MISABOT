@@ -18,7 +18,6 @@ botClient.on('ready',() =>{
     const morning = new cron.CronJob('0 30 8 * * 1-5', () => {
         var morningMessage = botClient.channels.cache.find(channel => channel.id === '713088552518418432');
         const morningEmbed = new Discord.MessageEmbed()
-            // .addField('Player Name',message.author.username)
             .setColor('#31a5af')
             .setTitle('Good Morning MISAns! Have a good day ahead :)')
             .setTimestamp()
@@ -30,7 +29,6 @@ botClient.on('ready',() =>{
     const job = new cron.CronJob('0 0 12 * * 1,3,5', () => {
         var announcement = botClient.channels.cache.find(channel => channel.id === '713088552518418432');
         const embed = new Discord.MessageEmbed()
-            // .addField('Player Name',message.author.username)
             .setColor('#31a5af')
             .setTitle('ANNOUNCEMENTS')
             .setAuthor("From: Executive Board")
@@ -42,6 +40,10 @@ botClient.on('ready',() =>{
       job.start();
     
 });
+    botClient.on("guildMemberAdd", member => {
+        member.send("Welcome to Ateneo MISA 20-21 discord server! Type in !help to any channel in the server to get started :)")
+            .catch(console.error);
+    });
 
     botClient.on('message', async message => {
 
