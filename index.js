@@ -134,7 +134,7 @@ botClient.on('ready',() =>{
                     var count = 1;
 
                     server.queue.forEach(function(entry) {
-                        output = output + count + ". " + entry + "\n";
+                        output = output + count + "." + entry + "\n";
                         count++;
                     });
                     message.channel.send("Songs in queue:" + "\n" + output);
