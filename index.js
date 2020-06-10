@@ -16,11 +16,11 @@ var servers = {};
 botClient.on('ready',() =>{
     console.log('MISA bot is ready!' + " version " + version);
 
-    const morning = new cron.CronJob('0 30 8 * * 1-5', () => {
+    const morning = new cron.CronJob('0 30 4 * * 1-5', () => {
         var morningMessage = botClient.channels.cache.find(channel => channel.id === '713088552518418432');
         const morningEmbed = new Discord.MessageEmbed()
             .setColor('#31a5af')
-            .setTitle('Good Morning MISAns! Have a good day ahead :)')
+            .setTitle('Good Day MISAns! Have a wonderful day ahead :)')
             .setTimestamp()
         morningMessage.send(morningEmbed);
       });
@@ -33,7 +33,7 @@ botClient.on('ready',() =>{
             .setColor('#31a5af')
             .setTitle('ANNOUNCEMENTS')
             .setAuthor("From: Executive Board")
-            .setDescription('1. TRANSEM will happen next week (no definite date yet) \n 2. No meeting this week!')
+            .setDescription('1. Set trainings with your respective VPs! \n 2. No meeting this week!')
             .setTimestamp()
         announcement.send(embed);
       });
